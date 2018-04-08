@@ -65,19 +65,19 @@ public class FirstActivity extends AppCompatActivity {
 
             switch (v.getId()) {
                 case R.id.btn_no_handle:
-                    handleNothing();
+                    handleBtnNothing();
                     break;
                 case R.id.btn_handle_in_first_activity:
-                    handleInFirstActivity();
+                    handleBtnInFirstActivity();
                     break;
                 case R.id.btn_handle_in_second_activity:
-                    handleInSecondActivity();
+                    handleBtnInSecondActivity();
                     break;
             }
         }
     };
 
-    private void handleNothing() {
+    private void handleBtnNothing() {
         countDownTimer = new CountDownTimer(5 * 1000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -94,7 +94,7 @@ public class FirstActivity extends AppCompatActivity {
         }.start();
     }
 
-    private void handleInFirstActivity() {
+    private void handleBtnInFirstActivity() {
         countDownTimer = new CountDownTimer(5 * 1000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -103,19 +103,23 @@ public class FirstActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                if (isAppOnForeground()) {
-                    Log.d(TAG, "startActivity - handleInFirstActivity - isAppOnForeground - " + isAppOnForeground());
-
-                    startActivity(new Intent(FirstActivity.this, SecondActivity.class)
-                            .putExtra("tag", "handleInFirstActivity - isAppOnForeground - " + isAppOnForeground()));
-                } else {
-                    ifStartSecondActivity = true;
-                }
+                handleInFirstActivity();
             }
         }.start();
     }
 
-    private void handleInSecondActivity() {
+    private void handleInFirstActivity() {
+        if (isAppOnForeground()) {
+            Log.d(TAG, "startActivity - handleInFirstActivity - isAppOnForeground - " + isAppOnForeground());
+
+            startActivity(new Intent(FirstActivity.this, SecondActivity.class)
+                    .putExtra("tag", "handleInFirstActivity - isAppOnForeground - " + isAppOnForeground()));
+        } else {
+            ifStartSecondActivity = true;
+        }
+    }
+
+    private void handleBtnInSecondActivity() {
         countDownTimer = new CountDownTimer(5 * 1000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -124,13 +128,17 @@ public class FirstActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                Log.d(TAG, "startActivity - handleInSecondActivity - isAppOnForeground - " + isAppOnForeground());
-
-                startActivity(new Intent(FirstActivity.this, SecondActivity.class)
-                        .putExtra("moveTaskToBack", !isAppOnForeground())
-                        .putExtra("tag", "handleInSecondActivity - isAppOnForeground - " + isAppOnForeground()));
+                handleInSecondActivity();
             }
         }.start();
+    }
+
+    private void handleInSecondActivity() {
+        Log.d(TAG, "startActivity - handleInSecondActivity - isAppOnForeground - " + isAppOnForeground());
+
+        startActivity(new Intent(FirstActivity.this, SecondActivity.class)
+                .putExtra("moveTaskToBack", !isAppOnForeground())
+                .putExtra("tag", "handleInSecondActivity - isAppOnForeground - " + isAppOnForeground()));
     }
 
     private void cancelCountdown() {
