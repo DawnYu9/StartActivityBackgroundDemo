@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">StartActivityBackgroundDemo</string>
+    <string name="show_dialog">show dialog</string>
+    <string name="no_handle">noHandle</string>
+    <string name="handle_in_second_activity_on_pause">handleInSecondActivity-onPause</string>
+    <string name="handle_in_second_activity_on_stop">handleInSecondActivity-onStop</string>
+    <string name="handle_in_second_activity_app_foreground">handleInSecondActivity-appForeground</string>
+    <string name="handle_in_first_activity_on_resume">handleInFirstActivity-onResume</string>
 </resources>

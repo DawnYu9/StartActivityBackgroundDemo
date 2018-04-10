@@ -6,24 +6,45 @@
     android:orientation="vertical">
 
     <Button
+        android:id="@+id/btn_show_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/show_dialog"
+        android:textAllCaps="false" />
+
+    <Button
         android:id="@+id/btn_no_handle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="noHandle：5s"
+        android:text="@string/no_handle"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_handle_in_second_activity_on_pause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/handle_in_second_activity_on_pause"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_handle_in_second_activity_on_stop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/handle_in_second_activity_on_stop"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btn_handle_in_second_activity_app_foreground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/handle_in_second_activity_app_foreground"
         android:textAllCaps="false" />
 
     <Button
         android:id="@+id/btn_handle_in_first_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="handleInFirstActivity：5s"
-        android:textAllCaps="false" />
-
-    <Button
-        android:id="@+id/btn_handle_in_second_activity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="handleInSecondActivity：5s"
+        android:text="@string/handle_in_first_activity_on_resume"
         android:textAllCaps="false" />
 
 </LinearLayout>

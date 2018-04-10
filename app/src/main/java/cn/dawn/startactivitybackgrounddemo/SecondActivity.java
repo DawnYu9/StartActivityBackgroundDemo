@@ -1,5 +1,7 @@
 package cn.dawn.startactivitybackgrounddemo;
 
+import android.app.ActivityManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -13,9 +15,7 @@ import android.widget.TextView;
  * author : DawnYu
  * GitHub : DawnYu9
  */
-public class SecondActivity extends AppCompatActivity {
-    private static final String TAG = "test-SecondActivity";
-
+public class SecondActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,41 +32,5 @@ public class SecondActivity extends AppCompatActivity {
         }
 
         tv.setText(getIntent().getStringExtra("tag"));
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.d(TAG, "onStart");
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        Log.d(TAG, "onRestart");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d(TAG, "onResume");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.d(TAG, "onPause");
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.d(TAG, "onStop");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.d(TAG, "onDestroy");
     }
 }
